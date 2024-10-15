@@ -20,7 +20,7 @@ template <typename T>
 void Matrix<T>::MakeRectangle()
 {
 	size_t maxSize=0;
-	for(cost auto& row:data)
+	for(const auto& row:data)
 	{
 		if(row.size()>maxSize)
 		{
