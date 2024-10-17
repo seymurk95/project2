@@ -14,5 +14,7 @@ int main()
 	md[0].resize(10);*/
 	std::cin>>md;
 	m+=md;
-	std::cout<<m;
+	Matrix<int> res(2,3);
+	res=m+md;
+	std::cout<<res;
 }
