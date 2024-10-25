@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/prog.dir/main.cpp.o -o prog  -Wl,-rpath,"/home/stud-05/seymur kazimov/Lessons/LCP/project2/projects/project2/build" libmytime.so 

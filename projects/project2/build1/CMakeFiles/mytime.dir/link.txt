@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmytime.a CMakeFiles/mytime.dir/time.cpp.o
+/usr/bin/ranlib libmytime.a
