@@ -82,5 +82,6 @@ int main() {
 	Logger x2;
 	x2=x1;
 	x2=std::move(x1);*/
-	InheritedLogger x;
+	/*InheritedLogger x;*/
+
 }
