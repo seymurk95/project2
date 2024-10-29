@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 /*class Cat { //первый вариант
     private:
     std::string name;
@@ -61,9 +62,8 @@ class Animal {
     const std::string& GetName() const {
         return name;
     }
-   virtual std::string Voice() const {
-        return "Generic Voice";
-    }
+   virtual std::string Voice() const = 0;
+   virtual ~Animal(){}
 };
 class Cat : public Animal {
     public:
@@ -79,7 +79,7 @@ public:
         return "Woof";
     }
 };
-class Shepherd:class Dog {
+class Shepherd:public Dog {
     public:
     Shepherd(const std::string& n) : Dog(n) {}
     std::string Voice() const override final {
@@ -90,8 +90,24 @@ void Process(const Animal& creature) {
     std::cout<<creature.Voice()<<"\n";
 }
 int main() {
-    Cat c("Tom");
+    /*Cat c("Tom");
     Dog d("Sharik");
     Process(c);
-    Process(d);
+    Process(d);*/
+    std::vector<Animal*> zoo;
+   /* Cat c("Tom");
+    Dog d("Sharik");
+    zoo.push_back(&c);
+    zoo.push_back(&d);
+    Process(*zoo[0]);
+    Process(*zoo[1]);*/
+    zoo.push_back(new Cat("Tom"));
+    zoo.push_back(new Dog("Sharik"));
+
+    Process(*zoo[0]);
+    Process(*zoo[1]);
+    for(Animal* animal : zoo) {
+        delete animal;
+    }
+
 }
