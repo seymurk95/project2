@@ -10,6 +10,18 @@ namespace chron
 		void normalise();
 		
 		public:
+        class IncorrectTimeException{
+
+        };
+        Time::Time(int h,int m,int s){
+          if(s<0||s>59||m<0||m>59||h<0||h>23){
+            throw IncorrectTimeException();
+        }
+        hours=h;
+        minutes=m;
+        seconds=s;
+        }
+        };
 		Time()=default;
 		Time(int h,int m,int s);
 		Time(int s): Time(0,0,s){}

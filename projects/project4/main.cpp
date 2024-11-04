@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <utility>
+#include <exception>
 class Logger {
 	private:
 	 int id=0;
@@ -47,8 +48,23 @@ class InheritedLogger: public Logger {
 		std::cout<<"~InheritedLogger()"<<"\n";
 	}
 };
-void f(const Logger& x) {
-	std::cout<<"void f\n";
+class C {
+	private:
+	Logger x;
+	public:
+	C() {
+		std::cout<<"C()"<<"\n";
+		Logger y;
+		throw std::exception();
+	}
+	~C() {
+		std::cout<<"~C()"<<"\n";
+	}
+};
+void f() {
+	std::cout<<"f() func:\n";
+    Logger x;
+    throw std::exception();
 }
 void f(Logger&& x) {
 	std::cout<<"void f temp\n";
@@ -83,5 +99,17 @@ int main() {
 	x2=x1;
 	x2=std::move(x1);*/
 	/*InheritedLogger x;*/
+	/*try{
+       Logger y;
+       f();
 
+	}catch(const std::exception& ){
+          std::cerr<<"Something bad\n";
+          return 1;
+	}*/
+	try {
+		C c;
+	} catch(const std::exception& ) {
+		std::cerr<<"Something bad \n";
+	}
 }
