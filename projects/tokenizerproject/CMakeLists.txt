@@ -7,4 +7,7 @@ add_executable(tokenizerproject main.cpp
         tokenizer.h
         parser.h
         tokenizer.cpp
-        parser.cpp)
+        parser.cpp
+        HelperJSON.cpp
+        HelperJSON.cpp
+        helper.h)
